@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://lipödemjournal.de/</loc>
-  </url>
+  <url><loc>https://lipödemjournal.de/</loc></url>
+  <url><loc>https://lipödemjournal.de/was-ist-lipoedem/</loc></url>
+  <url><loc>https://lipödemjournal.de/wie-wird-lipoedem-diagnostiziert/</loc></url>
+  <url><loc>https://lipödemjournal.de/diagnose-erste-schritte/</loc></url>
+  <url><loc>https://lipödemjournal.de/journaling/</loc></url>
+  <url><loc>https://lipödemjournal.de/was-diagnose-macht/</loc></url>
+  <url><loc>https://lipödemjournal.de/meine-routinen/</loc></url>
 </urlset>
