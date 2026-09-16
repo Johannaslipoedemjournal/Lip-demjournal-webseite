@@ -8,7 +8,7 @@
   plausible.init()
 </script>
 <script>(function(){
-var S="{\"hero-was-diagnose-macht\":{\"u\":\"./bilder/hero-was-diagnose-macht.jpg\"},\"about-portrait\":{\"u\":\"./bilder/about-portrait.jpg\"},\"home-about-teaser\":{\"u\":\"./bilder/home-about-teaser.jpg\"},\"prod-journal-buch\":{\"u\":\"./bilder/prod-journal-buch.jpg\"},\"prod-journal-digital-6m\":{\"u\":\"./bilder/prod-journal-digital-6m.jpg\"},\"journal-mini\":{\"u\":\"./bilder/journal-mini.jpg\"},\"list-was-diagnose-macht\":{\"u\":\"./bilder/list-was-diagnose-macht.jpg\"},\"home-was-diagnose-macht\":{\"u\":\"./bilder/home-was-diagnose-macht.jpg\"},\"hero-was-ist-lipoedem\":{\"u\":\"./bilder/hero-was-ist-lipoedem.jpg\"},\"list-was-ist-lipoedem\":{\"u\":\"./bilder/list-was-ist-lipoedem.jpg\"},\"home-was-ist-lipoedem\":{\"u\":\"./bilder/home-was-ist-lipoedem.jpg\"},\"hero-wie-wird-lipoedem-diagnostiziert\":{\"u\":\"./bilder/hero-wie-wird-lipoedem-diagnostiziert.jpg\"},\"list-wie-wird-lipoedem-diagnostiziert\":{\"u\":\"./bilder/list-wie-wird-lipoedem-diagnostiziert.jpg\"},\"home-wie-wird-lipoedem-diagnostiziert\":{\"u\":\"./bilder/home-wie-wird-lipoedem-diagnostiziert.jpg\"},\"hero-journaling\":{\"u\":\"./bilder/hero-journaling.jpg\"},\"list-journaling\":{\"u\":\"./bilder/list-journaling.jpg\"},\"home-journaling\":{\"u\":\"./bilder/home-journaling.jpg\"},\"hero-diagnose-erste-schritte\":{\"u\":\"./bilder/hero-diagnose-erste-schritte.jpg\"},\"list-diagnose-erste-schritte\":{\"u\":\"./bilder/list-diagnose-erste-schritte.jpg\"},\"home-diagnose-erste-schritte\":{\"u\":\"./bilder/home-diagnose-erste-schritte.jpg\"},\"author-mini\":{\"u\":\"./bilder/author-mini.jpg\"},\"hero-meine-routinen\":{\"u\":\"./bilder/hero-meine-routinen.jpg\"},\"list-meine-routinen\":{\"u\":\"./bilder/list-meine-routinen.jpg\"},\"home-meine-routinen\":{\"u\":\"./bilder/home-meine-routinen.jpg\"},\"routine-spaziergang\":{\"u\":\"./bilder/routine-spaziergang.jpg\"},\"routine-ernaehrung\":{\"u\":\"./bilder/routine-ernaehrung.jpg\"},\"pausen-foto\":{\"u\":\"./bilder/pausen-foto.jpg\"},\"prod-journal-digital-3m\":{\"u\":\"./bilder/prod-journal-digital-3m.jpg\"},\"journal-hero\":{\"u\":\"./bilder/journal-hero.jpg\"},\"home-portrait\":{\"u\":\"./bilder/home-portrait.jpg\"},\"prod-checkliste-erste-schritte-hero\":{\"u\":\"./bilder/prod-checkliste-erste-schritte-hero.jpg\"}}";
+var S="{\"hero-was-diagnose-macht\":{\"u\":\"/bilder/hero-was-diagnose-macht.jpg\"},\"about-portrait\":{\"u\":\"/bilder/about-portrait.jpg\"},\"home-about-teaser\":{\"u\":\"/bilder/home-about-teaser.jpg\"},\"prod-journal-buch\":{\"u\":\"/bilder/prod-journal-buch.jpg\"},\"prod-journal-digital-6m\":{\"u\":\"/bilder/prod-journal-digital-6m.jpg\"},\"journal-mini\":{\"u\":\"/bilder/journal-mini.jpg\"},\"list-was-diagnose-macht\":{\"u\":\"/bilder/list-was-diagnose-macht.jpg\"},\"home-was-diagnose-macht\":{\"u\":\"/bilder/home-was-diagnose-macht.jpg\"},\"hero-was-ist-lipoedem\":{\"u\":\"/bilder/hero-was-ist-lipoedem.jpg\"},\"list-was-ist-lipoedem\":{\"u\":\"/bilder/list-was-ist-lipoedem.jpg\"},\"home-was-ist-lipoedem\":{\"u\":\"/bilder/home-was-ist-lipoedem.jpg\"},\"hero-wie-wird-lipoedem-diagnostiziert\":{\"u\":\"/bilder/hero-wie-wird-lipoedem-diagnostiziert.jpg\"},\"list-wie-wird-lipoedem-diagnostiziert\":{\"u\":\"/bilder/list-wie-wird-lipoedem-diagnostiziert.jpg\"},\"home-wie-wird-lipoedem-diagnostiziert\":{\"u\":\"/bilder/home-wie-wird-lipoedem-diagnostiziert.jpg\"},\"hero-journaling\":{\"u\":\"/bilder/hero-journaling.jpg\"},\"list-journaling\":{\"u\":\"/bilder/list-journaling.jpg\"},\"home-journaling\":{\"u\":\"/bilder/home-journaling.jpg\"},\"hero-diagnose-erste-schritte\":{\"u\":\"/bilder/hero-diagnose-erste-schritte.jpg\"},\"list-diagnose-erste-schritte\":{\"u\":\"/bilder/list-diagnose-erste-schritte.jpg\"},\"home-diagnose-erste-schritte\":{\"u\":\"/bilder/home-diagnose-erste-schritte.jpg\"},\"author-mini\":{\"u\":\"/bilder/author-mini.jpg\"},\"hero-meine-routinen\":{\"u\":\"/bilder/hero-meine-routinen.jpg\"},\"list-meine-routinen\":{\"u\":\"/bilder/list-meine-routinen.jpg\"},\"home-meine-routinen\":{\"u\":\"/bilder/home-meine-routinen.jpg\"},\"routine-spaziergang\":{\"u\":\"/bilder/routine-spaziergang.jpg\"},\"routine-ernaehrung\":{\"u\":\"/bilder/routine-ernaehrung.jpg\"},\"pausen-foto\":{\"u\":\"/bilder/pausen-foto.jpg\"},\"prod-journal-digital-3m\":{\"u\":\"/bilder/prod-journal-digital-3m.jpg\"},\"journal-hero\":{\"u\":\"/bilder/journal-hero.jpg\"},\"home-portrait\":{\"u\":\"/bilder/home-portrait.jpg\"},\"prod-checkliste-erste-schritte-hero\":{\"u\":\"/bilder/prod-checkliste-erste-schritte-hero.jpg\"}}";
 var of=window.fetch?window.fetch.bind(window):null;
 function toData(u){return of(u).then(function(r){return r.blob();}).then(function(b){return new Promise(function(res){var fr=new FileReader();fr.onload=function(){res(fr.result);};fr.readAsDataURL(b);});});}
 var ready=null;
@@ -17,7 +17,7 @@ function build(){
   var o=JSON.parse(S), keys=Object.keys(o), jobs=[];
   keys.forEach(function(k){
     var v=o[k];
-    if(v&&typeof v.u==='string'&&v.u.indexOf('./bilder/')===0){
+    if(v&&typeof v.u==='string'&&v.u.indexOf('/bilder/')===0){
       jobs.push(toData(v.u).then(function(d){v.u=d;}).catch(function(){}));
     }
   });
@@ -34,8 +34,11 @@ window.fetch=function(u,o){
 build();
 })();</script>
   <meta charset="utf-8">
-  <title>Lipödem Journal – Wissen, Alltag & persönliche Erfahrungen</title>
-  <meta name="description" content="Dein Blog rund um Lipödem: verständliche Informationen, persönliche Erfahrungen, alltagstaugliche Tipps und Impulse für ein selbstbestimmtes Leben.">
+  <title>Lipödem Journal – Wissen, Symptome, Alltag & persönliche Erfahrungen</title>
+  <meta name="description" content="Lipödem verständlich erklärt: Symptome, Diagnose, Alltag, Ernährung, Bewegung und persönliche Erfahrungen. Wissen und praktische Impulse für ein selbstbestimmtes Leben mit Lipödem.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lipödemjournal.de/">
+
   <link rel="icon" type="image/png" href="./favicon-lipoedemjournal-logo.png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
