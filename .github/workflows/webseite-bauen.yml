@@ -1,0 +1,33 @@
+# Baut die Website bei jeder Änderung automatisch zusammen
+# und legt das fertige Ergebnis in den Zweig "website".
+# Hostinger holt sich die Website aus diesem Zweig.
+name: Website bauen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Website bauen
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Fertige Website in den Zweig "website" legen
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: website
+          publish_dir: ./_site
+          force_orphan: true
