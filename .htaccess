@@ -1,1 +1,8 @@
 ErrorDocument 404 /404.html
+
+Redirect 301 /was-ist-lipoedem/ /blog/was-ist-lipoedem/
+Redirect 301 /wie-wird-lipoedem-diagnostiziert/ /blog/wie-wird-lipoedem-diagnostiziert/
+Redirect 301 /diagnose-erste-schritte/ /blog/diagnose-erste-schritte/
+Redirect 301 /journaling/ /blog/journaling/
+Redirect 301 /was-diagnose-macht/ /blog/was-diagnose-macht/
+Redirect 301 /meine-routinen/ /blog/meine-routinen/
