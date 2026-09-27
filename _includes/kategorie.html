@@ -1,0 +1,5 @@
+{%- if include.kategorie == "Persönlich" -%}
+<span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px;color:#A66E1F;background:#F3E6CC;">{{ include.kategorie }}</span>
+{%- else -%}
+<span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px;color:#5E5327;background:#EAE1C4;">{{ include.kategorie }}</span>
+{%- endif -%}

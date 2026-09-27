@@ -1,0 +1,60 @@
+---
+layout: default
+---
+{%- assign titelbild = page.bild_titel | default: page.bild -%}
+<article style="max-width:720px;margin:0 auto;padding:44px 32px 72px;">
+  <a href="/blog/" style="font-weight:700;font-size:14.5px;">← Zurück zum Blog</a>
+  <div style="margin-top:26px;">{% include kategorie.html kategorie=page.kategorie %}</div>
+  <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;line-height:1.12;letter-spacing:-0.01em;margin:16px 0 14px;">{{ page.titel }}</h1>
+  <div style="font-size:14px;color:#998A62;font-weight:600;margin-bottom:28px;">Von Johanna · {% include datum.html datum=page.date %} · {% if page.lesezeit %}{{ page.lesezeit }}{% else %}{% assign woerter = content | strip_html | number_of_words %}{{ woerter | divided_by: 200 | plus: 1 }} Min.{% endif %} Lesezeit</div>
+  {%- if titelbild %}
+  {%- if page.titelbild_hochformat %}
+  <div style="border-radius:20px;overflow:hidden;margin:0 auto 36px;width:100%;aspect-ratio:3 / 4;max-width:465px;">
+  {%- else %}
+  <div style="border-radius:20px;overflow:hidden;margin:0 auto 36px;width:100%;height:360px;">
+  {%- endif %}
+    <img class="bild" src="{{ titelbild }}" alt="{{ page.bild_beschreibung | default: page.titel | escape }}">
+  </div>
+  {%- endif %}
+  <div class="artikel-text">
+    {%- if page.einleitung %}
+    <p style="font-weight:500;font-size:22px;color:#7d5214;margin:0 0 26px;">{{ page.einleitung }}</p>
+    {%- endif %}
+{{ content }}
+    {%- if page.quellen %}
+    <div style="margin:48px 0 0;padding:28px 30px;background:#F5EDD6;border:1px solid #E2D3A6;border-radius:16px;font-family:'Mulish',sans-serif;">
+      <div style="font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#8A6A21;margin-bottom:16px;">{{ page.quellen_titel | default: "Quellen" }}</div>
+      {%- for q in page.quellen %}
+      <div style="font-size:15px;line-height:1.6;color:#4A4232;margin-bottom:14px;">
+        <div>{{ q.text }}</div>
+        {%- if q.link %}
+        <a href="{{ q.link }}" target="_blank" rel="noopener" style="color:#A66E1F;font-weight:600;word-break:break-all;">{{ q.link }}</a>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+      {%- if page.quellen_hinweis %}
+      <div style="font-size:14px;line-height:1.6;color:#7A6E52;font-style:italic;margin-top:18px;padding-top:16px;border-top:1px solid #E2D3A6;">{{ page.quellen_hinweis }}</div>
+      {%- endif %}
+    </div>
+    {%- endif %}
+  </div>
+
+  <div style="margin-top:40px;background:#EAE1C4;border:1px solid #D8CB9E;border-radius:18px;padding:26px 28px;display:flex;gap:20px;align-items:center;">
+    <div style="width:64px;height:64px;flex:none;border-radius:50%;overflow:hidden;">
+      <img class="bild" src="/bilder/author-mini.jpg" alt="Johanna">
+    </div>
+    <div>
+      <div style="font-family:'Newsreader',serif;font-size:20px;">Johanna</div>
+      <div style="font-size:14.5px;color:#5F5641;">Krankenschwester, Lipödem-Betroffene und Autorin dieses Blogs.</div>
+    </div>
+  </div>
+  {%- unless page.journal_hinweis == false %}
+  <div style="margin-top:24px;background:#3B3218;color:#F4EAC9;border-radius:18px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div style="max-width:30em;">
+      <div style="font-family:'Newsreader',serif;font-size:22px;margin-bottom:4px;">Halte deinen Weg selbst fest.</div>
+      <div style="font-size:15px;color:#D9CBA0;">Dein täglicher Begleiter für mehr Klarheit über deinen Körper.</div>
+    </div>
+    <a href="/shop/" style="background:#F4EAC9;color:#3B3218;border:none;border-radius:999px;padding:13px 26px;font-size:15px;font-weight:700;white-space:nowrap;">Journal ansehen</a>
+  </div>
+  {%- endunless %}
+</article>

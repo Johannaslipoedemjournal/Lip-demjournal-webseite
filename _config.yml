@@ -1,0 +1,40 @@
+# ============================================================
+#  Einstellungen für das Lipödem Journal
+#  Nach Änderungen an dieser Datei dauert es 1–2 Minuten,
+#  bis die Website neu gebaut ist.
+# ============================================================
+
+title: "Lipödem Journal"
+titel_startseite: "Lipödem Journal – Wissen, Symptome, Alltag & persönliche Erfahrungen"
+description: "Lipödem verständlich erklärt: Symptome, Diagnose, Alltag, Ernährung, Bewegung und persönliche Erfahrungen. Wissen und praktische Impulse für ein selbstbestimmtes Leben mit Lipödem."
+url: "https://xn--lipdemjournal-kmb.de"   # = lipödemjournal.de (Schreibweise für Suchmaschinen)
+lang: de
+
+# Shop: true = Banner "Shop eröffnet bald" wird angezeigt, false = Shop normal sichtbar
+shop_geschlossen: true
+etsy_link: "https://www.etsy.com/shop/Lipoedemjournal?ref=seller-platform-mcnav"
+
+# Kontaktformular (Formspree)
+kontaktformular: "https://formspree.io/f/xaeygpnk"
+
+# ---- Ab hier technische Einstellungen, bitte nicht ändern ----
+permalink: /blog/:title/
+timezone: Europe/Berlin
+markdown: kramdown
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+plugins:
+  - jekyll-sitemap
+monate: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: artikel
+      nav: blog
+exclude:
+  - ANLEITUNG.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+{% include kopf.html %}
+</head>
+<body>
+<div style="min-height:100vh;background:#FBF5DF;color:#2A2418;font-family:'Mulish',system-ui,sans-serif;line-height:1.6;">
+  {%- case page.nav -%}
+    {%- when "start" -%}{% include kopfzeile.html start="ja" %}
+    {%- when "ueber" -%}{% include kopfzeile.html ueber="ja" %}
+    {%- when "blog" -%}{% include kopfzeile.html blog="ja" %}
+    {%- when "shop" -%}{% include kopfzeile.html shop="ja" %}
+    {%- when "kontakt" -%}{% include kopfzeile.html kontakt="ja" %}
+    {%- else -%}{% include kopfzeile.html %}
+  {%- endcase %}
+  <main>
+{{ content }}
+  </main>
+  {% include fusszeile.html %}
+</div>
+</body>
+</html>

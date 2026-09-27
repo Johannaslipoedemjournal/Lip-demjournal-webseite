@@ -1,0 +1,57 @@
+{%- if page.url == "/" -%}
+  {%- assign seitentitel = site.titel_startseite -%}
+{%- elsif page.titel -%}
+  {%- assign seitentitel = page.titel | append: " – " | append: site.title -%}
+{%- else -%}
+  {%- assign seitentitel = site.title -%}
+{%- endif -%}
+{%- assign beschreibung = page.kurzbeschreibung | default: page.beschreibung | default: site.description | strip_html | strip_newlines -%}
+{%- if page.bild -%}{%- assign vorschaubild = page.bild -%}{%- else -%}{%- assign vorschaubild = "/bilder/logo.png" -%}{%- endif -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ seitentitel }}</title>
+<meta name="description" content="{{ beschreibung | escape }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<meta property="og:type" content="{% if page.layout == 'artikel' %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="{{ seitentitel | escape }}">
+<meta property="og:description" content="{{ beschreibung | escape }}">
+<meta property="og:image" content="{{ site.url }}{{ vorschaubild }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seitentitel | escape }}">
+<meta name="twitter:description" content="{{ beschreibung | escape }}">
+<meta name="twitter:image" content="{{ site.url }}{{ vorschaubild }}">
+
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preload" href="/assets/fonts/mulish-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/newsreader-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-E9At-Z2DfaKu6aEp32-Vu.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+{%- if page.layout == 'artikel' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.titel | jsonify }},
+  "description": {{ beschreibung | jsonify }},
+  "image": "{{ site.url }}{{ vorschaubild }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "author": { "@type": "Person", "name": "Johanna" },
+  "publisher": { "@type": "Organization", "name": "{{ site.title }}", "logo": { "@type": "ImageObject", "url": "{{ site.url }}/bilder/logo.png" } },
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+}
+</script>
+{%- endif %}

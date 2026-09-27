@@ -1,0 +1,59 @@
+---
+layout: default
+nav: kontakt
+titel: Kontakt
+permalink: /kontakt/
+beschreibung: "Frage, Feedback oder einfach ein Hallo – schreib mir gern über das Kontaktformular."
+---
+  <div style="max-width:1000px;margin:0 auto;padding:56px 32px 72px;display:grid;grid-template-columns:1fr 1fr;gap:52px;">
+    <div>
+      <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#A66E1F;">Kontakt</span>
+      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:44px;margin:10px 0 16px;">Schreib mir gern.</h1>
+      <p style="font-size:17px;color:#5F5641;">Ob Frage, Feedback oder einfach ein Hallo – ich freue mich über deine Nachricht. Bitte hab Verständnis, dass ich keine medizinische Beratung geben kann.</p>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:18px;">
+        <p style="font-size:17px;color:#5F5641;margin:0;">Bis bald,<br>Johanna</p>
+        <img src="/bilder/logo.png" alt="Lipödem Journal Logo" style="height:36px;width:36px;object-fit:cover;">
+      </div>
+      <div style="margin-top:30px;font-size:15.5px;color:#453e2c;line-height:2;">
+        <div>✉  Johanna@lipödemjournal.de</div>
+      </div>
+      <div style="margin-top:26px;background:#EAE1C4;border:1px solid #D8CB9E;border-radius:16px;padding:18px 22px;font-size:14.5px;color:#5E5327;">
+        Bei akuten Beschwerden wende dich bitte an deine Ärztin oder deinen Arzt.
+      </div>
+    </div>
+    <div style="background:#FFFCF2;border:1px solid #EADFC1;border-radius:20px;padding:34px;">
+      <div id="danke" hidden style="text-align:center;padding:40px 10px;">
+          <div style="font-size:42px;">✿</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:14px 0 8px;">Danke für deine Nachricht!</h3>
+          <p style="color:#5F5641;margin:0;">Deine Nachricht wurde erfolgreich gesendet. Ich melde mich so bald wie möglich bei dir. 🤍</p>
+        </div>
+      <form id="kontaktformular" action="{{ site.kontaktformular }}" method="POST">
+          <input type="hidden" name="_to" value="johanna@xn--lipdemjournal-kmb.de">
+          <label for="kf-name" style="display:block;font-size:13.5px;font-weight:700;color:#453e2c;margin-bottom:6px;">Name</label>
+          <input id="kf-name" type="text" name="name" autocomplete="name" required="" style="width:100%;padding:13px 15px;border:1px solid #DED0A8;border-radius:11px;font-size:15px;background:#FDFAF0;margin-bottom:18px;">
+          <label for="kf-email" style="display:block;font-size:13.5px;font-weight:700;color:#453e2c;margin-bottom:6px;">E-Mail</label>
+          <input id="kf-email" type="email" name="email" autocomplete="email" required="" style="width:100%;padding:13px 15px;border:1px solid #DED0A8;border-radius:11px;font-size:15px;background:#FDFAF0;margin-bottom:18px;">
+          <label for="kf-nachricht" style="display:block;font-size:13.5px;font-weight:700;color:#453e2c;margin-bottom:6px;">Deine Nachricht</label>
+          <textarea id="kf-nachricht" rows="5" name="nachricht" required="" style="width:100%;padding:13px 15px;border:1px solid #DED0A8;border-radius:11px;font-size:15px;background:#FDFAF0;margin-bottom:22px;resize:vertical;"></textarea>
+          <button type="submit" style="width:100%;background:#C0842E;color:#fff;border:none;border-radius:999px;padding:15px;font-size:15.5px;font-weight:700;cursor:pointer;">Nachricht senden</button>
+        </form>
+    </div>
+  </div>
+
+<script>
+(function(){
+  var f=document.getElementById('kontaktformular');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var knopf=f.querySelector('button[type=submit]');
+    knopf.disabled=true; knopf.textContent='Wird gesendet …';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(d){return {ok:r.ok&&d.ok!==false,d:d};});})
+      .then(function(x){
+        if(x.ok){f.hidden=true;document.getElementById('danke').hidden=false;}
+        else{alert((x.d&&(x.d.error||x.d.message))||'Die Nachricht konnte leider nicht gesendet werden.');knopf.disabled=false;knopf.textContent='Nachricht senden';}
+      })
+      .catch(function(){alert('Die Nachricht konnte leider nicht gesendet werden. Bitte versuche es später erneut.');knopf.disabled=false;knopf.textContent='Nachricht senden';});
+  });
+})();
+</script>

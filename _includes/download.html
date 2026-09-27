@@ -1,0 +1,8 @@
+<div style="background:#F3E9CC;border:1px solid #E2D3A6;border-radius:20px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:32px 0;font-family:'Mulish',sans-serif;">
+  <div>
+    <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#5E5327;background:#EAE1C4;padding:5px 12px;border-radius:999px;">{{ include.hinweis | default: "Kostenloser Download" }}</span>
+    <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:14px 0 6px;color:#2A2418;">{{ include.titel }}</h3>
+    <p style="font-size:15px;color:#5F5641;margin:0;max-width:34em;line-height:1.6;">{{ include.text }}</p>
+  </div>
+  <a href="{{ include.datei }}" download style="background:#C0842E;color:#fff;border-radius:999px;padding:14px 28px;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;">{{ include.knopf | default: "Kostenlos herunterladen" }}</a>
+</div>

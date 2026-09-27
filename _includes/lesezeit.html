@@ -1,0 +1,1 @@
+{%- if include.beitrag.lesezeit -%}{{ include.beitrag.lesezeit }}{%- else -%}{%- assign woerter = include.beitrag.content | strip_html | number_of_words -%}{{ woerter | divided_by: 200 | plus: 1 }} Min.{%- endif -%}

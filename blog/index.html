@@ -1,0 +1,50 @@
+---
+layout: default
+nav: blog
+titel: Blog
+beschreibung: "Persönliche Geschichten aus meinem Alltag mit Lipödem und verständlich aufbereitetes Wissen – für mehr Orientierung und ein gutes Gefühl."
+---
+{%- assign angepinnt = site.posts | where: "angepinnt", true | sort: "pin_reihenfolge" -%}
+{%- assign weitere = site.posts | where_exp: "p", "p.angepinnt != true" -%}
+{%- assign neuester = weitere.first -%}
+<div style="max-width:1160px;margin:0 auto;padding:56px 32px 72px;">
+  <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#A66E1F;">Blog</span>
+  <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:44px;margin:10px 0 12px;">Erfahrungen &amp; Wissen zum Lipödem</h1>
+  <p style="font-size:18px;color:#5F5641;max-width:40em;margin:0 0 32px;">Persönliche Geschichten aus meinem Alltag und verständlich aufbereitetes Wissen – für mehr Orientierung und ein gutes Gefühl.</p>
+  <div style="display:flex;gap:10px;margin-bottom:34px;flex-wrap:wrap;" id="filter">
+    <button type="button" data-filter="Alle" aria-pressed="true" style="font-family:'Mulish',sans-serif;font-size:14.5px;font-weight:700;padding:9px 20px;border-radius:999px;cursor:pointer;border:1px solid #C0842E;background:#C0842E;color:#fff;">Alle</button>
+    <button type="button" data-filter="Persönlich" aria-pressed="false" style="font-family:'Mulish',sans-serif;font-size:14.5px;font-weight:700;padding:9px 20px;border-radius:999px;cursor:pointer;border:1px solid #DED0A8;background:#FFFCF2;color:#5F5641;">Persönlich</button>
+    <button type="button" data-filter="Wissen" aria-pressed="false" style="font-family:'Mulish',sans-serif;font-size:14.5px;font-weight:700;padding:9px 20px;border-radius:999px;cursor:pointer;border:1px solid #DED0A8;background:#FFFCF2;color:#5F5641;">Wissen</button>
+  </div>
+  <p style="font-size:14.5px;color:#8A7C58;font-weight:600;margin:-22px 0 30px;">Alle zwei Wochen erscheint hier ein neuer Artikel</p>
+  {%- if site.posts.size > 0 %}
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+    {%- for p in angepinnt %}
+    {% include karte-blog.html beitrag=p %}
+    {%- endfor %}
+    {%- for p in weitere %}
+    {%- if p.url == neuester.url %}
+    {% include karte-blog.html beitrag=p neu="ja" %}
+    {%- else %}
+    {% include karte-blog.html beitrag=p %}
+    {%- endif %}
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <div style="border:1px dashed #D8CB9E;border-radius:20px;padding:64px 32px;text-align:center;color:#998A62;font-size:15.5px;">Hier entstehen bald neue Beiträge.</div>
+  {%- endif %}
+</div>
+<script>
+(function(){
+  var aus="font-family:'Mulish',sans-serif;font-size:14.5px;font-weight:700;padding:9px 20px;border-radius:999px;cursor:pointer;border:1px solid #DED0A8;background:#FFFCF2;color:#5F5641;";
+  var an="font-family:'Mulish',sans-serif;font-size:14.5px;font-weight:700;padding:9px 20px;border-radius:999px;cursor:pointer;border:1px solid #C0842E;background:#C0842E;color:#fff;";
+  var knoepfe=document.querySelectorAll('#filter button');
+  var karten=document.querySelectorAll('.blog-karte');
+  function setze(f){
+    knoepfe.forEach(function(k){var ist=k.getAttribute('data-filter')===f;k.style.cssText=ist?an:aus;k.setAttribute('aria-pressed',ist);});
+    karten.forEach(function(c){c.style.display=(f==='Alle'||c.getAttribute('data-kategorie')===f)?'flex':'none';});
+  }
+  knoepfe.forEach(function(k){k.addEventListener('click',function(){setze(k.getAttribute('data-filter'));});});
+  setze('Alle');
+})();
+</script>

@@ -1,0 +1,11 @@
+{%- assign b = include.beitrag -%}
+{%- assign bildstart = b.bild_start | default: b.bild -%}
+<a href="{{ b.url }}" style="color:inherit;background:#FFFCF2;border:1px solid #EADFC1;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+  <div style="height:300px;position:relative;background:#F3E9CC;">{% if bildstart %}<img class="bild" src="{{ bildstart }}" alt="" loading="lazy">{% endif %}</div>
+  <div style="padding:26px 28px 30px;">
+    {% include kategorie.html kategorie=b.kategorie %}
+    <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;line-height:1.15;margin:14px 0 10px;">{{ b.titel }}</h3>
+    <p style="color:#5F5641;font-size:15.5px;margin:0;">{{ b.kurzbeschreibung }}</p>
+    <div style="margin-top:16px;font-size:13px;color:#998A62;font-weight:600;">{% include datum.html datum=b.date %} · {% include lesezeit.html beitrag=b %}</div>
+  </div>
+</a>

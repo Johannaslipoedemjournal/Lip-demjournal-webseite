@@ -1,0 +1,5 @@
+{%- if include.aktiv -%}
+<a href="{{ include.ziel }}" aria-current="page" style="font-family:'Mulish',sans-serif;font-size:15px;font-weight:600;padding:4px 0;color:#A66E1F;border-bottom:2px solid #C0842E;">{{ include.text }}</a>
+{%- else -%}
+<a href="{{ include.ziel }}" style="font-family:'Mulish',sans-serif;font-size:15px;font-weight:600;color:#2A2418;padding:4px 0;border-bottom:2px solid transparent;">{{ include.text }}</a>
+{%- endif -%}

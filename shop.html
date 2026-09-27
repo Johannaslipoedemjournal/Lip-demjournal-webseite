@@ -1,0 +1,96 @@
+---
+layout: default
+nav: shop
+titel: Shop
+permalink: /shop/
+beschreibung: "Das Lipödem Journal und Checklisten als Begleiter für deinen Weg mit Lipödem."
+---
+  <div style="position:relative;">
+  {%- if site.shop_geschlossen %}
+    <div style="position:absolute;inset:0;z-index:30;background:rgba(253,250,240,0.72);"></div>
+    <div style="position:fixed;top:42vh;left:0;right:0;z-index:60;background:#C0842E;color:#FFFCF2;padding:22px 32px;text-align:center;font-family:'Mulish',sans-serif;box-shadow:0 10px 30px rgba(60,48,20,0.18);pointer-events:none;">
+      <div style="font-size:22px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">Shop eröffnet bald</div>
+      <div style="margin-top:8px;font-size:14.5px;font-weight:600;">Bis dahin findest du meine Produkte auf <a href="{{ site.etsy_link }}" target="_blank" rel="noopener" style="color:#FFFCF2;text-decoration:underline;pointer-events:auto;">Etsy</a>.</div>
+    </div>
+  {%- endif %}
+  <div style="max-width:1160px;margin:0 auto;padding:56px 32px 72px;">
+    <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#A66E1F;">Shop</span>
+    <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:44px;margin:10px 0 34px;">Begleiter für deinen Weg</h1>
+
+    <section style="background:#F3E9CC;border:1px solid #E2D3A6;border-radius:20px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:32px;position:relative;z-index:40;">
+      <div>
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#5E5327;background:#EAE1C4;padding:5px 12px;border-radius:999px;">Kostenloser Download</span>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:14px 0 6px;">Checkliste: Könnte es ein Lipödem sein?</h2>
+        <p style="font-size:15px;color:#5F5641;margin:0;max-width:34em;">Eine kurze Selbsteinschätzung mit den typischen Anzeichen – als PDF zum Ausdrucken.</p>
+      </div>
+      <a href="/checkliste-koennte-es-ein-lipoedem-sein.pdf" download="" style="background:#C0842E;color:#fff;border:none;border-radius:999px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;">Kostenlos herunterladen</a>
+    </section>
+
+    <section style="background:#FFFCF2;border:1px solid #EADFC1;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:40px;">
+      <div style="min-height:440px;position:relative;">
+        <img class="bild" src="/bilder/journal-hero.jpg" alt="Produktfoto des digitalen Journals" loading="lazy">
+      </div>
+      <div style="padding:44px;display:flex;flex-direction:column;justify-content:center;">
+        <span style="display:inline-block;align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#5E5327;background:#EAE1C4;padding:5px 12px;border-radius:999px;">Bestseller · PDF · 6 Monate</span>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;margin:16px 0 12px;">Das Lipödem Journal – Digital</h2>
+        <p style="font-size:16.5px;color:#5F5641;margin:0 0 20px;">Dein täglicher Begleiter mit dem Lipödem – zum Festhalten, Verstehen und Dranbleiben. Ausgelegt für 6 Monate, zum direkten Ausfüllen auf deinem Handy oder iPad. Ideal ab der Diagnostik oder zur Vorbereitung auf eine OP.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 26px;font-size:15px;color:#453e2c;">
+          <li style="padding:6px 0;border-bottom:1px solid #F0E7CE;">✓ Tages-, Wochen- und Monatsseiten für 6 Monate</li>
+          <li style="padding:6px 0;border-bottom:1px solid #F0E7CE;">✓ Verständliches Wissen zum Lipödem</li>
+          <li style="padding:6px 0;">✓ Maße, Fotos &amp; persönliche Ziele</li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="font-family:'Newsreader',serif;font-size:34px;color:#7d5214;">{{ site.data.shop.journal.preis }}</div>
+          {%- if site.data.shop.journal.bald %}
+          <span style="display:inline-block;border:1px solid #D9C48A;color:#8A6A21;border-radius:999px;padding:14px 30px;font-size:15px;font-weight:700;">{{ site.data.shop.journal.bald_text }}</span>
+          {%- else %}
+          <button type="button" style="background:#C0842E;color:#fff;border:none;border-radius:999px;padding:15px 32px;font-size:15.5px;font-weight:700;cursor:pointer;">In den Warenkorb</button>
+          {%- endif %}
+        </div>
+        <div style="font-size:13px;color:#998A62;margin-top:12px;">inkl. MwSt. · als PDF-Download</div>
+      </div>
+    </section>
+
+    <section style="background:#3B3218;color:#F4EAC9;border-radius:20px;overflow:hidden;display:grid;grid-template-columns:0.9fr 1.1fr;gap:0;margin-bottom:40px;">
+      <div style="min-height:400px;position:relative;">
+        <img class="bild" src="/bilder/prod-checkliste-erste-schritte-hero.jpg" alt="Foto der ausgedruckten Checkliste" loading="lazy">
+      </div>
+      <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
+        <span style="display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#3B3218;background:#F4EAC9;padding:4px 11px;border-radius:999px;">{{ site.data.shop.checkliste.hinweis }}</span>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;margin:12px 0 8px;">{{ site.data.shop.checkliste.name }}</h2>
+        <p style="font-size:14px;color:#D9CBA0;margin:0 0 16px;">{{ site.data.shop.checkliste.beschreibung }}</p>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="font-family:'Newsreader',serif;font-size:22px;color:#F4EAC9;">{{ site.data.shop.checkliste.preis }}</div>
+          <button type="button" style="background:#F4EAC9;color:#3B3218;border:none;border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer;">In den Warenkorb</button>
+        </div>
+      </div>
+    </section>
+
+    <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 22px;">Weitere Produkte</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;">
+      {%- for prod in site.data.shop.weitere %}
+        <article style="background:#FFFCF2;border:1px solid #EADFC1;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;">
+          <div style="height:340px;position:relative;">
+            <image-slot id="{{ prod.img }}" shape="rect" placeholder="Produktfoto"></image-slot>
+            {%- if prod.bald %}
+              <span style="position:absolute;top:14px;left:14px;background:#3B3218;color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;">{{ prod.bald_text | default: "Bald verfügbar" }}</span>
+            {%- endif %}
+          </div>
+          <div style="padding:24px 26px 26px;flex:1;display:flex;flex-direction:column;">
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#998A62;">{{ prod.hinweis }}</span>
+            <h4 style="font-family:'Newsreader',serif;font-weight:500;font-size:23px;margin:8px 0 8px;">{{ prod.name }}</h4>
+            <p style="color:#5F5641;font-size:15px;margin:0 0 20px;flex:1;">{{ prod.beschreibung }}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="font-family:'Newsreader',serif;font-size:24px;color:#7d5214;">{{ prod.preis }}</div>
+              {%- if prod.bald %}
+              <button type="button" disabled style="border:none;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;background:#EBE0C0;color:#998A62;cursor:default;">Bald verfügbar</button>
+              {%- else %}
+              <button type="button" style="border:none;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;background:#C0842E;color:#fff;">In den Warenkorb</button>
+              {%- endif %}
+            </div>
+          </div>
+        </article>
+      {%- endfor %}
+    </div>
+  </div>
+  </div>

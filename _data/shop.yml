@@ -1,0 +1,33 @@
+# ============================================================
+#  Produkte im Shop – Preise und Texte hier ändern
+#  "bald: true" zeigt "Bald verfügbar" statt eines Kaufen-Knopfs
+# ============================================================
+
+# Großes Hauptprodukt oben
+journal:
+  preis: "26,90 €"
+  bald: false
+  bald_text: "Bald verfügbar"
+
+# Dunkler Kasten
+checkliste:
+  hinweis: "PDF zum Ausdrucken"
+  name: "Checkliste: Erste Schritte nach der Diagnose"
+  beschreibung: "Damit du die wichtigsten ersten Schritte immer im Blick hast: zum Ausdrucken und Aufhängen."
+  preis: "2,99 €"
+
+# "Weitere Produkte"
+weitere:
+  - name: "Das Lipödem Journal – Digital (3 Monate)"
+    hinweis: "PDF · 3 Monate"
+    beschreibung: "Dein digitaler Begleiter mit Wissen und viel Platz zum Dokumentieren – ausgelegt für 3 Monate. Sofort als PDF verfügbar, zum Selbstausdrucken."
+    preis: "18,90 €"
+    bild: /bilder/prod-journal-digital-3m.jpg
+    bald: false
+  - name: "Das Lipödem Journal – als Buch"
+    hinweis: "Print · Softcover"
+    beschreibung: "Dein Journal zum Anfassen: gedruckt als Softcover-Buch."
+    preis: ""
+    bild: /bilder/prod-journal-buch.jpg
+    bald: true
+    bald_text: "Verfügbar ab November 2026"

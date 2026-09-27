@@ -1,0 +1,16 @@
+{%- assign b = include.beitrag -%}
+{%- assign bildliste = b.bild_liste | default: b.bild -%}
+<a href="{{ b.url }}" data-kategorie="{{ b.kategorie }}" class="blog-karte" style="color:inherit;background:#FFFCF2;border:1px solid #EADFC1;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;{% if b.angepinnt %}border-color:#D9C48A;border-top:3px solid #C0842E;{% endif %}">
+  <div style="height:200px;background:#F3E9CC;">{% if bildliste %}<img class="bild" src="{{ bildliste }}" alt="" loading="lazy">{% endif %}</div>
+  <div style="padding:22px 24px 26px;flex:1;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      {% include kategorie.html kategorie=b.kategorie %}
+      {%- if include.neu %}
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px;background:#C0842E;color:#fff;">Neu</span>
+      {%- endif %}
+    </div>
+    <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:23px;line-height:1.18;margin:12px 0 10px;">{{ b.titel }}</h3>
+    <p style="color:#5F5641;font-size:15px;margin:0 0 16px;flex:1;">{{ b.kurzbeschreibung }}</p>
+    <div style="font-size:12.5px;color:#998A62;font-weight:600;">{% include datum.html datum=b.date %} · {% include lesezeit.html beitrag=b %}</div>
+  </div>
+</a>
