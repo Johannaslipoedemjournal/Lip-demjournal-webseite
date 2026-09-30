@@ -1,0 +1,399 @@
+{%- comment -%}
+  Ein bisschen mehr von mir – Foto- und Video-Leiste
+  Einbinden auf der Über-mich-Seite (ganz unten):  {% include alltag-leiste.html %}
+  Einträge pflegen in:  _data/alltag.yml
+  Dateien ablegen in:   assets/alltag/
+{%- endcomment -%}
+
+{%- assign eintraege = site.data.alltag -%}
+{%- if eintraege and eintraege.size > 0 -%}
+
+<section class="alltag" aria-labelledby="alltag-titel">
+  <div class="alltag__kopf">
+    <h2 id="alltag-titel" class="alltag__titel">Ein bisschen mehr von mir</h2>
+    <p class="alltag__intro">Jede Woche ein kleiner Moment aus meinem Leben.</p>
+  </div>
+
+  <div class="alltag__rahmen">
+    <button class="alltag__pfeil alltag__pfeil--links" type="button" aria-label="Vorherige Einträge" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+
+    <ul class="alltag__leiste" tabindex="0" aria-label="Fotos und Videos, zum Blättern wischen">
+      {%- for e in eintraege -%}
+        {%- if e.video -%}
+          {%- assign src = '/assets/alltag/' | append: e.video | relative_url -%}
+          {%- assign typ = 'video' -%}
+        {%- else -%}
+          {%- assign src = '/assets/alltag/' | append: e.bild | relative_url -%}
+          {%- assign typ = 'bild' -%}
+        {%- endif -%}
+      <li class="alltag__eintrag">
+        <button type="button" class="alltag__karte"
+                data-typ="{{ typ }}" data-src="{{ src }}" data-text="{{ e.text | escape }}"
+                aria-label="{% if typ == 'video' %}Video abspielen: {% else %}Foto vergrößern: {% endif %}{{ e.text | escape }}">
+          {%- if typ == 'video' -%}
+            {%- if e.vorschau -%}
+              <img src="{{ '/assets/alltag/' | append: e.vorschau | relative_url }}" alt="" loading="lazy">
+            {%- else -%}
+              <video src="{{ src }}#t=0.1" preload="metadata" muted playsinline tabindex="-1" aria-hidden="true"></video>
+            {%- endif -%}
+            <span class="alltag__play" aria-hidden="true"></span>
+          {%- else -%}
+            <img src="{{ src }}" alt="" loading="lazy">
+          {%- endif -%}
+        </button>
+        <p class="alltag__text">{{ e.text }}</p>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <button class="alltag__pfeil alltag__pfeil--rechts" type="button" aria-label="Nächste Einträge" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</section>
+
+<dialog class="alltag__lightbox" aria-label="Vergrößerte Ansicht">
+  <button class="alltag__schliessen" type="button" aria-label="Schließen">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="alltag__lb-inhalt">
+    <div class="alltag__medium"></div>
+    <p class="alltag__lb-text"></p>
+  </div>
+  <button class="alltag__lb-pfeil alltag__lb-pfeil--links" type="button" aria-label="Vorheriger Eintrag">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="alltag__lb-pfeil alltag__lb-pfeil--rechts" type="button" aria-label="Nächster Eintrag">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</dialog>
+
+<style>
+  /* ── Farben & Schriften: hier an deine Seite anpassen ── */
+  .alltag, .alltag__lightbox {
+    --a-grund: #FBF7F1;      /* Creme-Hintergrund */
+    --a-schrift: #3A2F2A;    /* Textfarbe */
+    --a-leise: #7A6B62;      /* gedämpfter Text */
+    --a-gold: #C49A4A;       /* Gold-Akzent */
+    --a-terra: #C0704F;      /* Terrakotta-Akzent */
+    --a-serif: 'Newsreader', Georgia, serif;
+    --a-sans: 'Mulish', 'Segoe UI', sans-serif;
+  }
+
+  .alltag {
+    margin: 4rem 0 2rem;
+    color: var(--a-schrift);
+    font-family: var(--a-sans);
+  }
+  .alltag__kopf { margin-bottom: 1.25rem; }
+  .alltag__titel {
+    font-family: var(--a-serif);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+    margin: 0 0 .35rem;
+  }
+  .alltag__intro {
+    margin: 0;
+    color: var(--a-leise);
+    font-size: 1rem;
+  }
+
+  .alltag__rahmen { position: relative; }
+
+  .alltag__leiste {
+    --abstand: 1rem;
+    display: flex;
+    gap: var(--abstand);
+    list-style: none;
+    margin: 0;
+    padding: 0 0 .5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .alltag__leiste::-webkit-scrollbar { display: none; }
+  .alltag__leiste:focus-visible { outline: 2px solid var(--a-gold); outline-offset: 4px; border-radius: 12px; }
+
+  /* Handy: knapp 3 Einträge sichtbar, damit man sieht, dass es weitergeht */
+  .alltag__eintrag {
+    flex: 0 0 36%;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+  /* Tablet: 3 Einträge */
+  @media (min-width: 640px) {
+    .alltag__eintrag { flex-basis: calc((100% - 2 * var(--abstand)) / 3); }
+  }
+  /* Desktop: 5 Einträge */
+  @media (min-width: 960px) {
+    .alltag__eintrag { flex-basis: calc((100% - 4 * var(--abstand)) / 5); }
+  }
+
+  .alltag__karte {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    padding: 0;
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #EFE6DA;
+    cursor: pointer;
+  }
+  .alltag .alltag__karte img,
+  .alltag .alltag__karte video {
+    position: absolute !important;
+    top: 0 !important; left: 0 !important; right: auto !important; bottom: auto !important;
+    width: 100% !important; height: 100% !important;
+    max-width: none !important; max-height: none !important;
+    margin: 0 !important; transform: none !important;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+  .alltag__karte:focus-visible { outline: 2px solid var(--a-gold); outline-offset: 3px; }
+
+  .alltag__play {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 3rem; height: 3rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(251, 247, 241, .88);
+    box-shadow: 0 2px 10px rgba(58, 47, 42, .18);
+  }
+  .alltag__play::after {
+    content: "";
+    position: absolute;
+    left: 54%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: .55rem 0 .55rem .9rem;
+    border-color: transparent transparent transparent var(--a-terra);
+  }
+
+  .alltag__text {
+    margin: .6rem .15rem 0;
+    font-size: .88rem;
+    line-height: 1.45;
+    color: var(--a-schrift);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Pfeile nur am Desktop mit Maus */
+  .alltag__pfeil {
+    position: absolute;
+    top: calc(50% - 1.5rem);
+    transform: translateY(-50%);
+    width: 2.6rem; height: 2.6rem;
+    border-radius: 50%;
+    border: 1px solid rgba(196, 154, 74, .45);
+    background: var(--a-grund);
+    color: var(--a-schrift);
+    cursor: pointer;
+    display: grid; place-items: center;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(58, 47, 42, .12);
+  }
+  .alltag__pfeil[hidden] { display: none; }
+  .alltag__pfeil--links { left: -1.1rem; }
+  .alltag__pfeil--rechts { right: -1.1rem; }
+  .alltag__pfeil:hover { border-color: var(--a-gold); }
+  .alltag__pfeil:focus-visible { outline: 2px solid var(--a-gold); outline-offset: 2px; }
+  @media (hover: none) { .alltag__pfeil { display: none !important; } }
+
+  .alltag svg {
+    width: 1.2rem; height: 1.2rem;
+    fill: none; stroke: currentColor; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── Vollbildansicht ── */
+  .alltag__lightbox {
+    width: min(92vw, 34rem);
+    max-height: 92vh;
+    padding: 1rem 1rem 1.25rem;
+    border: 0;
+    border-radius: 22px;
+    background: var(--a-grund);
+    color: var(--a-schrift);
+    font-family: var(--a-sans);
+    overflow: visible;
+  }
+  .alltag__lightbox::backdrop { background: rgba(40, 32, 28, .72); }
+  .alltag__lb-inhalt { display: flex; flex-direction: column; gap: .9rem; }
+  .alltag__medium {
+    display: grid; place-items: center;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #EFE6DA;
+  }
+  .alltag__lightbox .alltag__medium img,
+  .alltag__lightbox .alltag__medium video {
+    position: static !important;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    max-height: 72vh;
+    object-fit: contain;
+  }
+  .alltag__lb-text {
+    margin: 0 .25rem;
+    font-family: var(--a-serif);
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  .alltag__schliessen,
+  .alltag__lb-pfeil {
+    position: absolute;
+    width: 2.6rem; height: 2.6rem;
+    border-radius: 50%;
+    border: 0;
+    background: var(--a-grund);
+    color: var(--a-schrift);
+    display: grid; place-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+  }
+  .alltag__lightbox svg {
+    width: 1.2rem; height: 1.2rem;
+    fill: none; stroke: currentColor; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .alltag__schliessen { top: -.9rem; right: -.9rem; z-index: 3; }
+  .alltag__lb-pfeil { top: 40%; }
+  .alltag__lb-pfeil--links { left: -1.3rem; }
+  .alltag__lb-pfeil--rechts { right: -1.3rem; }
+  .alltag__lb-pfeil[hidden] { display: none; }
+  .alltag__schliessen:focus-visible,
+  .alltag__lb-pfeil:focus-visible { outline: 2px solid var(--a-gold); outline-offset: 2px; }
+  @media (max-width: 600px) {
+    .alltag__schliessen { top: .5rem; right: .5rem; }
+    .alltag__lb-pfeil--links { left: .4rem; }
+    .alltag__lb-pfeil--rechts { right: .4rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .alltag__leiste { scroll-behavior: auto; }
+  }
+</style>
+
+<script>
+(function () {
+  var sektion = document.querySelector('.alltag');
+  var dialog = document.querySelector('.alltag__lightbox');
+  if (!sektion || !dialog) return;
+
+  var leiste = sektion.querySelector('.alltag__leiste');
+  var pfeilLinks = sektion.querySelector('.alltag__pfeil--links');
+  var pfeilRechts = sektion.querySelector('.alltag__pfeil--rechts');
+  var karten = Array.prototype.slice.call(sektion.querySelectorAll('.alltag__karte'));
+
+  var medium = dialog.querySelector('.alltag__medium');
+  var lbText = dialog.querySelector('.alltag__lb-text');
+  var lbLinks = dialog.querySelector('.alltag__lb-pfeil--links');
+  var lbRechts = dialog.querySelector('.alltag__lb-pfeil--rechts');
+  var aktuell = 0;
+
+  /* Pfeile der Leiste ein-/ausblenden */
+  function pfeileAktualisieren() {
+    var max = leiste.scrollWidth - leiste.clientWidth;
+    pfeilLinks.hidden = leiste.scrollLeft <= 4;
+    pfeilRechts.hidden = leiste.scrollLeft >= max - 4;
+  }
+  function blaettern(richtung) {
+    leiste.scrollBy({ left: richtung * leiste.clientWidth * 0.8 });
+  }
+  pfeilLinks.addEventListener('click', function () { blaettern(-1); });
+  pfeilRechts.addEventListener('click', function () { blaettern(1); });
+  leiste.addEventListener('scroll', pfeileAktualisieren, { passive: true });
+  window.addEventListener('resize', pfeileAktualisieren);
+  window.addEventListener('load', pfeileAktualisieren);
+  pfeileAktualisieren();
+
+  /* Vollbildansicht */
+  function zeigen(i) {
+    aktuell = (i + karten.length) % karten.length;
+    var k = karten[aktuell];
+    medium.innerHTML = '';
+
+    if (k.dataset.typ === 'video') {
+      var v = document.createElement('video');
+      v.src = k.dataset.src;
+      v.controls = true;
+      v.playsInline = true;
+      v.muted = true;
+      v.setAttribute('playsinline', '');
+      medium.appendChild(v);
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    } else {
+      var img = document.createElement('img');
+      img.src = k.dataset.src;
+      img.alt = k.dataset.text || '';
+      medium.appendChild(img);
+    }
+    lbText.textContent = k.dataset.text || '';
+  }
+
+  function oeffnen(i) {
+    lbLinks.hidden = lbRechts.hidden = karten.length < 2;
+    zeigen(i);
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+  }
+  function schliessen() {
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+  }
+
+  karten.forEach(function (k, i) {
+    k.addEventListener('click', function () { oeffnen(i); });
+  });
+  lbLinks.addEventListener('click', function () { zeigen(aktuell - 1); });
+  lbRechts.addEventListener('click', function () { zeigen(aktuell + 1); });
+  dialog.querySelector('.alltag__schliessen').addEventListener('click', schliessen);
+
+  /* Video stoppen, Fokus zurück zur Karte */
+  dialog.addEventListener('close', function () {
+    medium.innerHTML = '';
+    if (karten[aktuell]) karten[aktuell].focus();
+  });
+
+  /* Klick auf den dunklen Hintergrund schließt */
+  dialog.addEventListener('click', function (e) {
+    if (e.target === dialog) schliessen();
+  });
+
+  /* Pfeiltasten */
+  dialog.addEventListener('keydown', function (e) {
+    if (karten.length < 2) return;
+    if (e.key === 'ArrowLeft') zeigen(aktuell - 1);
+    if (e.key === 'ArrowRight') zeigen(aktuell + 1);
+  });
+
+  /* Wischen am Handy */
+  var startX = null;
+  dialog.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+  dialog.addEventListener('touchend', function (e) {
+    if (startX === null || karten.length < 2) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) zeigen(aktuell + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
+})();
+</script>
+
+{%- endif -%}
