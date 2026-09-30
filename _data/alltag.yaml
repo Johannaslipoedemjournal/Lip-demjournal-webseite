@@ -1,0 +1,35 @@
+# Ein bisschen mehr von mir – Einträge für die Leiste auf der Über-mich-Seite
+#
+# SO GEHT'S:
+# 1. Foto oder Video in den Ordner  assets/alltag/  hochladen
+# 2. Hier einen neuen Eintrag GANZ OBEN einfügen (das Neueste steht dann vorne)
+# 3. Auf Einrückung achten: Zeile mit "- " beginnt, darunter zwei Leerzeichen
+# 4. Den Satz immer in "Anführungszeichen" setzen
+#
+# Solange hier kein Eintrag steht, wird die Leiste auf der Seite nicht angezeigt.
+#
+# ── Vorlage FOTO ─────────────────────────────────────────
+# - bild: 2026-10-05-isar.jpg
+#   text: "Sonntagsspaziergang an der Isar."
+#
+# ── Vorlage VIDEO ────────────────────────────────────────
+# - video: 2026-10-12-journal.mp4
+#   vorschau: 2026-10-12-journal.jpg      # freiwillig – ohne wird das erste Bild des Videos gezeigt
+#   text: "Ein ruhiger Abend mit Tee."
+#
+# Tipp für Dateinamen: Datum vorne, keine Umlaute, keine Leerzeichen.
+# ─────────────────────────────────────────────────────────
+
+# Hier drunter deine Einträge (entferne das # am Zeilenanfang, um die Beispiele zu nutzen):
+
+- bild: wiesn.jpg
+  text: "Balance-Akt des Jahres – ein Prosit auf die Wiesn!"
+
+- bild: spaziergang.jpg
+  text: "Kurz raus, Kopf frei machen."
+
+- bild: wandern.jpg
+  text: "Oben angekommen. Die Aussicht war jeden Schritt wert."
+
+- bild: blade-night.jpg
+  text: "Ab zur Blade Night!"
