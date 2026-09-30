@@ -1,0 +1,49 @@
+# Produkte für die Shop-Seite
+# Preise und Links hier ändern – die Seite passt sich automatisch an.
+
+hauptprodukt:
+  name: "Das Lipödem Journal – 6 Monate"
+  hinweis: "PDF · 6 Monate"
+  beschreibung: "Dein täglicher Begleiter mit dem Lipödem – zum Festhalten, Verstehen und Dranbleiben. Ausgelegt für 6 Monate, zum direkten Ausfüllen auf deinem Handy oder iPad oder zum Ausdrucken. Ideal ab der Diagnostik oder zur Vorbereitung auf eine OP."
+  punkte:
+    - "Tages-, Wochen- und Monatsseiten für 6 Monate"
+    - "Verständliches Wissen zum Lipödem"
+    - "Start- und Abschlussseiten mit Rückblick über das halbe Jahr"
+  preis: "27,08 €"
+  bild: /bilder/journal-hero.jpg
+  bild_alt: "Produktfoto des Lipödem Journals für 6 Monate"
+  link: https://www.etsy.com/de/listing/4585070419/lipodem-journal-o-digitales
+
+weitere:
+  - name: "Das Lipödem Journal – 90 Tage"
+    hinweis: "PDF · 90 Tage"
+    beschreibung: "Dein Begleiter für drei Monate: Tagesseiten für Symptome, Therapie, Bewegung und Ernährung, dazu Wochen- und Monatsrückblicke. Zum Ausdrucken oder digitalen Ausfüllen."
+    preis: "19,90 €"
+    bild: /bilder/prod-journal-90-tage.jpg
+    bild_alt: "Titelseite des Lipödem Journals für 90 Tage"
+    link: https://www.etsy.com/de/listing/4579738854/lipodem-journal-90-tage-o-digitales
+
+  - name: "Checkliste: Diagnose Lipödem – Erste Schritte"
+    hinweis: "PDF · 1 Seite"
+    beschreibung: "Sieben übersichtliche Punkte für die Zeit nach der Diagnose – von der passenden ärztlichen Betreuung bis zum Start deiner Symptom-Dokumentation."
+    preis: "2,99 €"
+    bild: /bilder/prod-checkliste-erste-schritte-hero.jpg
+    bild_alt: "Vorschau der Checkliste Diagnose Lipödem – Erste Schritte"
+    link: https://www.etsy.com/de/listing/4579735459/checkliste-erste-schritte-nach-lipodem
+
+  - name: "7 Tage für dich – Self-Care-Challenge"
+    hinweis: "PDF · 7 Tage + Rückblick"
+    beschreibung: "Jeden Tag ein Thema mit kurzem Impuls, kleiner Challenge und Reflexionsfragen – von Körperwahrnehmung über Kompression bis Entspannung. Allein oder als Ergänzung zum Journal."
+    preis: "8,97 €"
+    bild: /bilder/prod-7-tage-challenge.jpg
+    bild_alt: "Titelseite der 7-Tage-Self-Care-Challenge"
+    link: https://www.etsy.com/de/listing/4579760477/7-tage-self-care-challenge-bei-lipodem-o
+
+  - name: "Das Lipödem Journal als Buch"
+    hinweis: "Gedrucktes Buch"
+    beschreibung: "Das Journal zum Anfassen – gedruckt, gebunden und bereit für deine Notizen."
+    bald: true
+    bald_text: "Erscheint im November"
+    bild: /bilder/prod-journal-buch.jpg
+    bild_voll: true    # Stimmungsfoto: füllt die ganze Bildfläche aus
+    bild_alt: "Das gedruckte Lipödem Journal"
