@@ -69,5 +69,6 @@ a:focus-visible,button:focus-visible{outline:2px solid #C0842E;outline-offset:3p
   [style*="min-height:440px"],[style*="min-height:400px"]{min-height:260px !important}
   [style*="bottom:-22px"]{position:static !important;margin-top:14px !important;max-width:none !important}
   [style*="margin-top:51px"]{margin-top:0 !important}
+  .hero-foto{height:auto !important;aspect-ratio:4/3}
 }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto !important}}
