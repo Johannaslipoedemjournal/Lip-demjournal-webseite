@@ -17,12 +17,12 @@ bild_beschreibung: 'Illustration: Aktenordner mit Antrag und Widerspruch, darauf
 .kk-status dd{margin:0;font-weight:600;min-width:0}
 .kk-pill{display:inline-block;background:#C0673F;color:#FBF6E9;border-radius:99px;padding:1px 10px;font-size:13px}
 .kk-punch{font-style:italic;font-size:1.4em;color:#C0673F}
-.kk-timeline{list-style:none;margin:28px 0;padding:0;position:relative}
-.kk-timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:#E2D3A6}
-.kk-timeline li{position:relative;padding:0 0 18px 32px;margin:0}
-.kk-timeline li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;box-sizing:border-box;border-radius:50%;background:#F4EAC9;border:2px solid #A66E1F}
-.kk-timeline li.kk-no::before{border-color:#C0673F;background:#C0673F}
-.kk-timeline li.kk-now::before{border-color:#C0673F;box-shadow:0 0 0 5px rgba(192,103,63,.22)}
+.artikel-text .kk-timeline{list-style:none !important;margin:28px 0 !important;padding:0 !important;position:relative}
+.artikel-text .kk-timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:#E2D3A6}
+.artikel-text .kk-timeline li{position:relative;list-style:none !important;padding:0 0 18px 34px !important;margin:0 !important}
+.artikel-text .kk-timeline li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;box-sizing:border-box;border-radius:50%;background:#F4EAC9;border:2px solid #A66E1F}
+.artikel-text .kk-timeline li.kk-no::before{border-color:#C0673F;background:#C0673F}
+.artikel-text .kk-timeline li.kk-now::before{border-color:#C0673F;box-shadow:0 0 0 5px rgba(192,103,63,.22)}
 .kk-when{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#998A62;font-weight:700}
 .kk-what{font-size:1.1em;line-height:1.35}
 .kk-letter{background:#FBF6E9;border:1px solid #E2D3A6;padding:22px 22px 24px;margin:24px 0 32px;position:relative;transform:rotate(-.6deg);box-shadow:0 8px 24px -14px rgba(60,40,30,.35)}
@@ -62,18 +62,13 @@ Ich dachte: Jetzt geht es endlich los. Jetzt kann ich endlich etwas tun, damit e
 
 Ich bekam über die Praxis direkt einen Termin bei einem kooperierenden Sanitätshaus. Für mich fühlte sich das zunächst nach einem ziemlich guten Start an. Es war so unkompliziert.
 
-Mitte Juni sitze ich dann dort zum Ausmessen meiner Beine. Wir sprachen über verschiedene Materialien, Farben, Nähte und Modelle. Am Ende entscheide ich mich für eine schwarze Leggings. Ich habe das Gefühl, das wäre am sinnvollsten für mich. Das Gespräch war wirklich angenehm, ich wurde gut aufgeklärt und bin mit einem guten Gefühl nach Hause gegangen.
-
-Jetzt muss nur noch der Antrag zur Krankenkasse, und dann bekomme ich meine Versorgung.
-
-<p class="kk-punch">Dachte ich.</p>
+Mitte Juni sitze ich dann dort zum Ausmessen meiner Beine. Wir sprachen über verschiedene Materialien, Farben, Nähte und Modelle. Am Ende entscheide ich mich für eine schwarze Leggings.
 
 <ol class="kk-timeline">
   <li><div class="kk-when">Mai</div><div class="kk-what">Diagnose und Rezept für eine flachgestrickte Versorgung</div></li>
   <li><div class="kk-when">Mitte Juni</div><div class="kk-what">Ausmessen im Sanitätshaus</div></li>
   <li class="kk-no"><div class="kk-when">25. Juni</div><div class="kk-what">Ablehnung durch die Krankenkasse</div></li>
   <li><div class="kk-when">7. Juli</div><div class="kk-what">Erster Widerspruch an die Krankenkasse, Weiterleitung von Unterlagen und Widerspruch an den Medizinischen Dienst</div></li>
-  <li><div class="kk-when">Mitte August</div><div class="kk-what">Anruf beim Medizinischen Dienst: „in Bearbeitung“</div></li>
   <li class="kk-no"><div class="kk-when">19. August</div><div class="kk-what">Erste Ablehnung durch den Medizinischen Dienst</div></li>
   <li><div class="kk-when">25. September</div><div class="kk-what">Zweiter Widerspruch mit weiteren Unterlagen bei der Krankenkasse, Weiterleitung an den Medizinischen Dienst</div></li>
   <li class="kk-now"><div class="kk-when">Jetzt</div><div class="kk-what">Wieder warten</div></li>
