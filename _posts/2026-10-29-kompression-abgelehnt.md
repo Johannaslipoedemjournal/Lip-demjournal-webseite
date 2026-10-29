@@ -58,10 +58,7 @@ bild_beschreibung: 'Illustration: Aktenordner mit Antrag und Widerspruch, darauf
 
 Mai 2026: Ich bekomme meine Diagnose. Endlich hat das, was mein Körper mir schon lange sagt, einen Namen. Und mit der Diagnose bekomme ich auch ein Rezept für eine flachgestrickte Kompressionsversorgung.
 
-Ich dachte: Jetzt geht es endlich los. Jetzt kann ich endlich etwas tun, damit es mir besser geht.
-
 Ich bekam über die Praxis direkt einen Termin bei einem kooperierenden Sanitätshaus. Für mich fühlte sich das zunächst nach einem ziemlich guten Start an. Es war so unkompliziert.
-
 Mitte Juni sitze ich dann dort zum Ausmessen meiner Beine. Wir sprachen über verschiedene Materialien, Farben, Nähte und Modelle. Am Ende entscheide ich mich für eine schwarze Leggings.
 
 <ol class="kk-timeline">
