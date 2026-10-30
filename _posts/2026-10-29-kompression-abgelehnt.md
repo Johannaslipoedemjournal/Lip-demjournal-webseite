@@ -8,6 +8,8 @@ bild: /bilder/hero-kompression-abgelehnt.jpg
 bild_liste: /bilder/list-kompression-abgelehnt.jpg
 bild_start: /bilder/home-kompression-abgelehnt.jpg
 bild_beschreibung: 'Illustration: Aktenordner mit Antrag und Widerspruch, darauf eine gefaltete Kompressionsleggings und ein Schreiben mit Abgelehnt-Stempel'
+published: false
+
 ---
 
 
