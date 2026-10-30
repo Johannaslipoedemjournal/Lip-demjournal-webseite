@@ -1,5 +1,5 @@
 ---
-titel: Kompression durch Krankenkasse abgelehnt
+titel: Kompressionsversorgung: abgelehnt
 kategorie: Persönlich
 kurzbeschreibung: 'Diagnose, Rezept, Ausmessen – und dann zwei Ablehnungen. Mein Weg durch Krankenkasse, Widerspruch und Gutachten des Medizinischen Dienstes.'
 einleitung: 'Ich hatte endlich eine Diagnose. Ein Rezept. Eine konkrete Therapieempfehlung. Und trotzdem stehe ich Monate später noch immer ohne meine Kompressionsversorgung da.'
