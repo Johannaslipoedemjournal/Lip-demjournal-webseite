@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xn--lipdemjournal-kmb.de/sitemap.xml
